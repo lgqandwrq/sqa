@@ -1,0 +1,8 @@
+INDEX VERSION 1.3+/Users/liguanqun/Documents/sqa/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+4293219744.index
+1592314650.index
+4184281981.index
+2026750349.index
+1206394283.index
+2486258740.index
+1877092231.index

@@ -1,0 +1,33 @@
+package com.icofsoftware.service;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import com.icofsoftware.beans.NewsBean;
+import com.icofsoftware.db.DBHelper;
+
+public class NewsService {
+
+	public NewsBean getIntroductionNews(){
+		NewsBean nb = new NewsBean();
+		String sql = "select * from news where type = 1";
+		DBHelper db = new DBHelper();
+		ResultSet rs = null;
+		try {
+			//db.getConnection();
+			rs = db.executeQuery(sql);
+			while (rs.next()) {
+				if (uemail.equals(rs.getString("email"))
+						&& upwd.equals(rs.getString("pwd"))) {
+					return true;
+	                
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.free(rs);
+		}
+		return nb;
+	}
+}

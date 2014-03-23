@@ -1,0 +1,35 @@
+package com.icofsoftware.service;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import com.icofsoftware.beans.NewsBean;
+import com.icofsoftware.db.DBHelper;
+
+public class NewsService {
+
+	public NewsBean getIntroductionNews(){
+		NewsBean nb = new NewsBean();
+		String sql = "select * from news where type = 1";
+		DBHelper db = new DBHelper();
+		ResultSet rs = null;
+		try {
+			//db.getConnection();
+			rs = db.executeQuery(sql);
+			while (rs.next()) {
+				nb.setNid(rs.getInt("nid"));
+				nb.setTitle(rs.getString("title"));
+				nb.setContent(rs.getString("content"));
+				nb.setPostdate(rs.getDate("postdate").toString());
+				nb.setPosterid(rs.getInt("posterid"));
+				nb.setType(rs.getInt("type"));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.free(rs);
+		}
+		return nb;
+	}
+}

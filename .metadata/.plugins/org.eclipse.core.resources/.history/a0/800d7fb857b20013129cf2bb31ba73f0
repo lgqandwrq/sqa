@@ -1,0 +1,5 @@
+package com.icofsoftware.service;
+
+public class NewsService {
+
+}
