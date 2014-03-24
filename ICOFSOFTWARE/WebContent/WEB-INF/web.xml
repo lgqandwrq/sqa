@@ -24,4 +24,7 @@
     <servlet-name>NewsGetMSEInfoServlet</servlet-name>
     <url-pattern>/NewsGetMSEInfoServlet/*</url-pattern>
   </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>NewsHome/index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
