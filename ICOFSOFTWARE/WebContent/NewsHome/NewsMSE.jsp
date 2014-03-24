@@ -2,12 +2,12 @@
 <html lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-        <title>NewsIntroduction</title>
+        <title>NewsMSE</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="NewsHome/css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="NewsHome/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         
         <!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -408,7 +408,7 @@ small.text-muted {
                               <div class="panel panel-default">
                                  <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>More Templates</h4></div>
                                   <div class="panel-body">
-                                    <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Free @Bootply</a>
+                                    <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#"></a>
                                     <div class="clearfix"></div>
                                     There a load of new free Bootstrap 3 ready templates at Bootply. All of these templates are free and don't require extensive customization to the Bootstrap baseline.
                                   </div>
@@ -442,7 +442,7 @@ small.text-muted {
                       <hr>
                       
                       <h5 class="text-center">
-                      <a href="#" target="ext">Â©Copyright Created by J.K. 2014</a>
+                      <a href="#" target="ext">©Copyright Created by J.K. 2014</a>
                       </h5>
                         
                       <hr>

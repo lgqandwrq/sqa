@@ -8,7 +8,6 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet/*</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>NewsGetSchoolInfoServlet</servlet-name>
     <servlet-class>com.icofsoftware.servlet.NewsGetSchoolInfoServlet</servlet-class>
@@ -16,5 +15,13 @@
   <servlet-mapping>
     <servlet-name>NewsGetSchoolInfoServlet</servlet-name>
     <url-pattern>/NewsGetSchoolInfoServlet/*</url-pattern>
+  </servlet-mapping>
+ <servlet>
+    <servlet-name>NewsGetMSEInfoServlet</servlet-name>
+    <servlet-class>com.icofsoftware.servlet.NewsGetMSEInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewsGetMSEInfoServlet</servlet-name>
+    <url-pattern>/NewsGetMSEInfoServlet/*</url-pattern>
   </servlet-mapping>
 </web-app>
