@@ -1,1 +1,4 @@
 *.class
+ICOFSOFTWARE/src/com/icofsoftware/db/DBHelper.java
+ICOFSOFTWARE/.project
+ICOFSOFTWARE/.classpath

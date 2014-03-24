@@ -17,4 +17,7 @@
     <servlet-name>NewsGetSchoolInfoServlet</servlet-name>
     <url-pattern>/NewsGetSchoolInfoServlet/*</url-pattern>
   </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>NewsHome/index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
