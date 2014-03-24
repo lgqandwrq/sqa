@@ -1,3 +1,0 @@
-INDEX VERSION 1.126
-/Users/liguanqun/Documents/sqa/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1206394283.index
-/ICOFSOFTWARE/src
