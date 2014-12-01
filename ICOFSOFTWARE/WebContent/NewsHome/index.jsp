@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" import="com.icofsoftware.beans.*" %>
 <html lang="en">
 
 <head>
@@ -11,11 +11,11 @@
     <title>International Class of School of Software</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="/ICOFSOFTWARE/NewsHome/css/bootstrap.css" rel="stylesheet">
     
     <!-- Add custom CSS here -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/ICOFSOFTWARE/NewsHome/css/stylish-portfolio.css" rel="stylesheet">
+    <link href="/ICOFSOFTWARE/NewsHome/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>	
@@ -30,15 +30,30 @@
             <a>Please Log In</a>
             <div class="form-div">
               <form class="form-signin" role="form" action="/ICOFSOFTWARE/LoginServlet" method="post">
-                <input type="text" name="useremail" class="form-control" placeholder="Email address" required="" autofocus="">
-                <input type="password" name="userpwd" class="form-control" placeholder="Password" required="">
-                <div class="checkbox">
-                <label>
-                <input type="checkbox" value="remember-me"> Remember me
-                </label>
-                </div>
+                <table> 
+                    <tr>
+                        <td>
+                            <input type="text" name="useremail" class="form-control" value="lgq1990@gmail.com" placeholder="Email address" required="" autofocus="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" name="userpwd" class="form-control" value="123" placeholder="Password" required="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <!-- <label> -->
+                            <input type="checkbox" value="remember-me"> Remember me
+                            <!-- </label> -->
+                        </td>
+                    </tr>
+                </table>
+                <!-- <div class="checkbox">  -->
+                
+                <!-- </div> -->
                 <button class="btn btn-default btn-sm" type="submit" name="submit" value="login">Sign In</button>
-                <button class="btn btn-default btn-sm" type="submit">Register</button>
+                <button class="btn btn-default btn-sm" type="button" id="register-bt" onclick="toSignup()">Register</button>
               </form> 
             </div>
             </li>
@@ -69,7 +84,7 @@
                 <em>You</em> Make Them Better--></h2>
             <h2 class="white-font"> 哈工大软件学院国际班</h2>
             <a href="#about" class="btn btn-default btn-lg">Find Out More</a>
-            <a id="login-bt"class="btn btn-default btn-lg">Log in</a>
+            <a id="login-bt" class="btn btn-default btn-lg">Sign in</a>
         </div>
     </div>
     <!-- /Full Page Image Header Area -->
@@ -82,7 +97,7 @@
                     <h2>International Cooperation</h2>
                     <h2>国际合作简介</h2>
                     <p class="lead">HIT School of Software and many famous universities of United States, Ireland, Germany, Britain, France, Sweden, Switzerland, Italy, Japan, Korea and other countries, as well as IBM, Microsoft, Intel, HP, AutoDesk and other well-known international IT companies have signed a cooperation agreement, about cooperation and exchange projects.</p>
-                    <p class="lead">哈工大软件学院已先后与美国、爱尔兰、德国、英国、法国、瑞典、瑞士、意大利、日本、韩国等多个国家的著名高校以及IBM、Microsoft、Intel、HP、AutoDesk等国际知名IT公司签订了合作协议，开展合作交流项目。<a target="_blank" href="http://software.hit.edu.cn/cooperation/show/39.aspx">Learn More>> </a></p>
+                    <p class="lead">哈工大软件学院已先后与美国、爱尔兰、德国、英国、法国、瑞典、瑞士、意大利、日本、韩国等多个国家的著名高校以及IBM、Microsoft、Intel、HP、AutoDesk等国际知名IT公司签订了合作协议，开展合作交流项目。<a target="_blank" href="/ICOFSOFTWARE/NewsGetNewsHomeServlet">Learn More>> </a></p>
                 </div>
             </div>
         </div>
@@ -101,7 +116,7 @@
             <div class="row">
                 <div class="col-md-2 col-md-offset-2 text-center">
                     <div class="service-item">
-                        <a href="http://software.hit.edu.cn"><i class="service-icon fa fa-home"></i></a>
+                        <a href="/ICOFSOFTWARE/NewsGetNewsHomeServlet"><i class="service-icon fa fa-home"></i></a>
                         <h4>News Home</h4>
                         <p>Do you want to find out more news or information about the International Class of School of Software in HIT? Click Here!</p>
                     </div>
@@ -153,36 +168,36 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-2 text-center">
                     <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/SoftwareBuilding.jpeg">
+                        <a href="/ICOFSOFTWARE/NewsImgGalleryServlet">
+                            <img class="img-portfolio img-responsive" src="/ICOFSOFTWARE/NewsHome/img/aLeader.jpg">
                         </a>
-                        <h4>Building of School</h4>
+                        <h4>Students of 2014 Graduating Class</h4>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/MainBuilding2.jpg">
+                        <a href="/ICOFSOFTWARE/NewsImgGalleryServlet">
+                            <img class="img-portfolio img-responsive" src="/ICOFSOFTWARE/NewsHome/img/aLeader4.jpg">
                         </a>
-                        <h4>Building of MainBuilding in HIT</h4>
+                        <h4>Students Entertainment</h4>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 col-md-offset-2 text-center">
                     <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/Leader.jpg">
+                        <a href="/ICOFSOFTWARE/NewsImgGalleryServlet">
+                            <img class="img-portfolio img-responsive" src="/ICOFSOFTWARE/NewsHome/img/aLeader5.jpg">
                         </a>
-                        <h4>Professors of School</h4>
+                        <h4>Dean of School</h4>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/Leader2.jpg">
+                        <a href="/ICOFSOFTWARE/NewsImgGalleryServlet">
+                            <img class="img-portfolio img-responsive" src="/ICOFSOFTWARE/NewsHome/img/aLeader2.jpg">
                         </a>
-                        <h4>Professors of School</h4>
+                        <h4>Students and Teachers</h4>
                     </div>
                 </div>
             </div>
@@ -241,10 +256,11 @@
     <!-- /Footer -->
 
     <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="/ICOFSOFTWARE/NewsHome/js/jquery-1.10.2.js"></script>
+    <script src="/ICOFSOFTWARE/NewsHome/js/bootstrap.js"></script>
 
     <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+    
     <script>
     $("#menu-close").click(function(e) {
         e.preventDefault();
@@ -263,6 +279,13 @@
         $("#sidebar-wrapper").toggleClass("active");
     });
     </script>
+    <script>
+
+    function toSignup(){
+       window.location.href='/ICOFSOFTWARE/NewsHome/index_signup.jsp';
+    }
+    </script>
+
     <script>
     $(function() {
         $('a[href*=#]:not([href=#])').click(function() {

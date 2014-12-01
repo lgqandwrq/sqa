@@ -1,0 +1,48 @@
+<div class="navbar navbar-blue navbar-static-top">  
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle</span>
+          <span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+        </button>
+        <a href="NewsGetNewsHomeServlet" class="navbar-brand logo" style="width: 60px">News</a>
+    	</div>
+    	<nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="NewsGetNewsHomeServlet"><i class="glyphicon glyphicon-home"></i> Home</a>
+        </li>
+        
+        <li>
+          <a href="/ICOFSOFTWARE/Alumni/index.jsp" role="button" data-toggle="modal"><i class="service-icon fa fa-group"></i> Friend Circle</a>
+        </li>
+        <!--
+        <li>
+          <a href="#"><span class="badge">badge</span></a>
+        </li>
+        -->
+      </ul>
+      <% if((UserBean)session.getAttribute("user") == null) {%>
+       <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Visitor</a>
+         <ul class="dropdown-menu">
+            <li><a href="/ICOFSOFTWARE/NewsHome/index_signup.jsp"><i class="glyphicon glyphicon-log-in"></i> Sign In</a></li>
+          </ul>
+        </li>
+      </ul>
+      <%} else {%>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle" style="width: 25px; height: 25px; display: inline;margin-top: 0px" src="/ICOFSOFTWARE/upload/<%=((UserBean)session.getAttribute("user")).getFilename() %>" class="img-responsive" alt="Responsive image"><%=((UserBean)session.getAttribute("user")).getRealname() %></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ICOFSOFTWARE/Profiles/Edit.jsp"><i class="glyphicon glyphicon-pencil"></i> Edit </a></li>
+            <li><a href="/ICOFSOFTWARE/Profiles/Setting.jsp"><i class="glyphicon glyphicon-cog"></i> Settings </a></li>
+            <li><a href="/ICOFSOFTWARE/LoginServlet?type=logout"><i class="glyphicon glyphicon-off"></i> Log out </a></a></li>
+          </ul>
+        </li>
+      </ul>
+      <% }%>
+    	</nav>
+  </div>

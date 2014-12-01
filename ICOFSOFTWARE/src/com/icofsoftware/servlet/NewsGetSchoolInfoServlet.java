@@ -16,7 +16,6 @@ import com.icofsoftware.service.NewsService;
 /**
  * Servlet implementation class NewsGetSchoolInfoServlet
  */
-@WebServlet("/NewsGetSchoolInfoServlet")
 public class NewsGetSchoolInfoServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 1L;
        

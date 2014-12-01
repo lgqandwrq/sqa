@@ -1,6 +1,8 @@
 package com.icofsoftware.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,36 +17,28 @@ import com.icofsoftware.service.LoginService;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Default constructor.
-	 */
-	public LoginServlet() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 		request.setCharacterEncoding("utf-8");
 		String submit = request.getParameter("submit");
+		String type = request.getParameter("type");
+
+		if (type != null && type.equals("logout")) {
+			HttpSession session = request.getSession(true);
+			session.removeAttribute("user");
+			response.sendRedirect("/ICOFSOFTWARE/");
+			return;
+		}
 
 		if (submit != null && submit.equals("login")) {
 			String uemail = request.getParameter("useremail");
@@ -52,39 +46,41 @@ public class LoginServlet extends HttpServlet {
 			UserBean user = new UserBean();
 			user.setUseremail(uemail);
 			user.setUserpwd(upwd);
-			System.out.println("Servlet"+uemail);
-			System.out.println("Servlet"+upwd);
 			if (LoginService.CheckLogin(user)) {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("user", user);
-				request.getRequestDispatcher("/NewsHome/NewsHome.html").forward(request,
-						response);
+				if (user.getType() == UserBean.ADMIN)
+					// request.getRequestDispatcher("/NewsHome/AdminNewsPost.jsp")
+					// .forward(request, response);
+					request.getRequestDispatcher("NewsHome/AdminNewsPost.jsp")
+							.forward(request, response);
+				else
+					response.sendRedirect("/ICOFSOFTWARE/NewsGetNewsHomeServlet");
 			} else {
+				response.sendRedirect("/ICOFSOFTWARE/NewsHome/index_signup.jsp?regpage_type=2");
+			}
+		}else if(submit != null && submit.equals("signup")) {
+			String uname = request.getParameter("reg_username"); //Student Number
+			String urealname = request.getParameter("reg_realname");
+			String uemail = request.getParameter("reg_email");
+			String upwd = request.getParameter("reg_pwd");
+			
+			UserBean user = new UserBean();
+			user.setUsername(uname);
+			user.setRealname(urealname);
+			user.setUseremail(uemail);
+			user.setUserpwd(upwd);
+			
+			if(LoginService.Register(user)){
 				HttpSession session = request.getSession(true);
 				session.setAttribute("user", user);
-				request.getRequestDispatcher("/NewsHome/ErrorPage.html").forward(request,
-						response);
+				System.out.println("Success");
+				response.sendRedirect("/ICOFSOFTWARE/Profiles/Edit.jsp");
+			}else{
+				response.sendRedirect("/ICOFSOFTWARE/NewsHome/index_signup.jsp?regpage_type=2");
 			}
+			
 		}
-//		
-//		if (submit != null && submit.equals("注册")) {
-//			String uname = request.getParameter("uname");
-//			String upass = request.getParameter("upass");
-//			User user = new User();
-//			user.setUname(uname);
-//			user.setUpass(upass);
-//			if (Land.login(user)) {
-//				HttpSession session = request.getSession(true);
-//				session.setAttribute("user", user);
-//				request.getRequestDispatcher("index1.jsp").forward(request,
-//						response);
-//			} else if (login.login(user)) {
-//				HttpSession session = request.getSession(true);
-//				session.setAttribute("user", user);
-//				request.getRequestDispatcher("index2.jsp").forward(request,
-//						response);
-//			}
-//		}
+		
 	}
-
 }

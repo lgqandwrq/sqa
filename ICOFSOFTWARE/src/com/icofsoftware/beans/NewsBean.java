@@ -1,7 +1,13 @@
 package com.icofsoftware.beans;
 
-public class NewsBean {
+import java.io.Serializable;
 
+public class NewsBean implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1258129955084663988L;
 	private int nid;
 	private String title;
 	private String content;
@@ -13,6 +19,9 @@ public class NewsBean {
 	
 	public int getNid() {
 		return nid;
+	}
+	public String getsNid() {
+		return nid+"";
 	}
 	public void setNid(int nid) {
 		this.nid = nid;

@@ -22,6 +22,7 @@ public class DBHelper {
 	public boolean isvalid = false;
 
 	private Connection conn = null;
+	Statement stmt = null;
 
 	public Connection getConnection() {
 		conn = null;
@@ -30,7 +31,6 @@ public class DBHelper {
 			if (null == conn) {
 				conn = DriverManager.getConnection(url + dbname, username,
 						password);
-				System.out.println(conn);
 			}
 		} catch (Exception e) {
 
@@ -61,7 +61,14 @@ public class DBHelper {
 	public int executeNonQuery(String sql) {
 		int result = 0;
 		Connection conn = null;
-		Statement stmt = null;
+		if (stmt != null) {
+			try {
+				stmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		stmt = null;
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
@@ -81,7 +88,7 @@ public class DBHelper {
 		ResultSet rs = null;
 		try {
 			conn = getConnection();
-			if(conn == null){
+			if (conn == null) {
 				System.out.println("~~null");
 			}
 			stmt = conn.createStatement();
@@ -165,4 +172,14 @@ public class DBHelper {
 		free(conn);
 	}
 
+	public void free() {
+		if (conn != null)
+			try {
+				conn.close();
+				if (stmt != null)
+					stmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	}
 }
